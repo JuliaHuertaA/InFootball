@@ -36,6 +36,31 @@ class AuthViewController: UIViewController {
     }
     
     @IBAction func inicioSesionButtonAction(_ sender: UIButton) {
+        if let email = emailTextField.text, let password = passwordTextField.text{
+            Auth.auth().signIn(withEmail: email, password: password){
+                (result,error)in
+                if let result = result, error == nil{
+                    self.navigationController?.pushViewController(HomeViewController(email: result.user.email!, provider: .basic), animated: true)
+                    print("Entra a la app")
+                }else{
+                    print("Este es el error ")
+                    print(error as Any)
+                    print(error?.localizedDescription as Any)
+                    let errorAutenticacion = error?.localizedDescription as Any
+                    if errorAutenticacion as! String == "The password is invalid or the user does not have a password." {
+                        let alertController = UIAlertController(title: "Error", message: "La contraseña es incorrecta", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                    if errorAutenticacion as! String == "There is no user record corresponding to this identifier. The user may have been deleted." {
+                        let alertController = UIAlertController(title: "Error", message: "El usuario no se encuentra registrado", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                        
+                }
+            }
+        }
     }
 }
 
