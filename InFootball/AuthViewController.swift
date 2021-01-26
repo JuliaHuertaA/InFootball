@@ -27,9 +27,25 @@ class AuthViewController: UIViewController {
                     self.navigationController?.pushViewController(HomeViewController(email: result.user.email!, provider: .basic), animated: true)
                     print("Si se registro")
                 }else{
-                    let alertController = UIAlertController(title: "Error", message: "Se ha producido un error, verifica tu registro nuevamente", preferredStyle: .alert)
-                    alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
-                    self.present(alertController, animated: true, completion: nil)
+                    print("Este es el error ")
+                    print(error as Any)
+                    print(error?.localizedDescription as Any)
+                    let errorRegistro = error?.localizedDescription as Any
+                    if errorRegistro as! String ==  "The email address is badly formatted." {
+                        let alertController = UIAlertController(title: "Error", message: "No se ingreso el correo correctamente", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                    if errorRegistro as! String == "The email address is already in use by another account."{
+                        let alertController = UIAlertController(title: "Error", message: "El correo que ingreso ya se uso para crear otra cuenta", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                    if errorRegistro as! String == "The password must be 6 characters long or more."{
+                        let alertController = UIAlertController(title: "Error", message: "La contraseña debe tener 6 caracteres o más", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
+                        self.present(alertController, animated: true, completion: nil)
+                    }
                 }
             }
         }
