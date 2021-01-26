@@ -19,6 +19,13 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Registro"
+        let defaults =  UserDefaults.standard
+        if let email = defaults.value(forKey: "email") as? String,
+           let provider = defaults.value(forKey: "provider") as? String{
+            authStackView.isHidden = true
+            navigationController?.pushViewController(HomeViewController(email: email, provider: HomeViewController.ProviderType.init(rawValue: provider)!), animated: false)
+        }
+        
     }
 
     @IBAction func registrarButtonAction(_ sender: UIButton) {
