@@ -10,10 +10,12 @@ import Firebase
 
 class AuthViewController: UIViewController {
 
+    @IBOutlet weak var authStackView: UIStackView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var registrarButton: UIButton!
     @IBOutlet weak var inicioSesionButton: UIButton!
+    @IBOutlet weak var googleButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Registro"
@@ -78,5 +80,8 @@ class AuthViewController: UIViewController {
             }
         }
     }
+    @IBAction func googleButtonAction(_ sender: Any) {
+    }
+    
 }
 

@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4mc-wK-Fsy">
-                                <rect key="frame" x="16" y="104" width="382" height="136"/>
+                                <rect key="frame" x="16" y="429" width="382" height="184"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7WF-y8-zLz">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
@@ -73,20 +73,40 @@
                                             <constraint firstAttribute="height" constant="40" id="QUP-XR-sP3"/>
                                         </constraints>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cj-o7-joj">
+                                        <rect key="frame" x="0.0" y="144" width="382" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Google" image="WhatsApp Image 2021-01-26 at 3.52.05 PM">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="googleButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ekp-au-OC7"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhatsApp Image 2021-01-26 at 2.45.01 PM" translatesAutoresizingMaskIntoConstraints="NO" id="ppV-eA-G1r">
+                                <rect key="frame" x="87" y="124" width="240" height="224"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4mc-wK-Fsy" secondAttribute="trailing" constant="16" id="OYi-hy-s6X"/>
-                            <constraint firstItem="4mc-wK-Fsy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="fa7-Eu-6lE"/>
-                            <constraint firstItem="4mc-wK-Fsy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="y8f-2U-h0K"/>
+                            <constraint firstItem="ppV-eA-G1r" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="8t6-KQ-fJ5"/>
+                            <constraint firstItem="4mc-wK-Fsy" firstAttribute="top" secondItem="ppV-eA-G1r" secondAttribute="bottom" constant="81" id="DfG-6L-uTw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ppV-eA-G1r" secondAttribute="trailing" constant="87" id="cMB-gV-15G"/>
+                            <constraint firstItem="4mc-wK-Fsy" firstAttribute="top" secondItem="ppV-eA-G1r" secondAttribute="bottom" constant="81" id="djd-2n-qcj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4mc-wK-Fsy" secondAttribute="bottom" constant="249" id="lI5-nW-37y"/>
+                            <constraint firstItem="ppV-eA-G1r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="t4Q-OL-KJa"/>
+                            <constraint firstItem="4mc-wK-Fsy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="tGD-Og-LVJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4mc-wK-Fsy" secondAttribute="trailing" constant="16" id="vXX-Wb-6hd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RPt-X3-VbQ"/>
                     <connections>
+                        <outlet property="authStackView" destination="4mc-wK-Fsy" id="WoD-9W-Klq"/>
                         <outlet property="emailTextField" destination="7WF-y8-zLz" id="asj-8I-gKu"/>
+                        <outlet property="googleButton" destination="7cj-o7-joj" id="Koe-kn-pP8"/>
                         <outlet property="inicioSesionButton" destination="1PU-Q8-xSb" id="rQt-pr-9dM"/>
                         <outlet property="passwordTextField" destination="R7u-9g-1SG" id="yt5-yd-9cu"/>
                         <outlet property="registrarButton" destination="7tg-fO-Bej" id="ayr-1A-GjA"/>
@@ -94,10 +114,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-112" y="1"/>
+            <point key="canvasLocation" x="-113.04347826086958" y="0.6696428571428571"/>
         </scene>
     </scenes>
     <resources>
+        <image name="WhatsApp Image 2021-01-26 at 2.45.01 PM" width="480" height="640"/>
+        <image name="WhatsApp Image 2021-01-26 at 3.52.05 PM" width="28" height="28"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

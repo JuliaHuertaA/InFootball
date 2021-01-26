@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import Firebase
 
 class HomeViewController: UIViewController {
 
     enum ProviderType: String {
         case basic
+        case google
     }
     
     @IBOutlet weak var emailLabel: UILabel!
@@ -30,11 +32,21 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "INFOOTBALL"
-
+        emailLabel.text = email
+        navigationItem.setHidesBackButton(true, animated: false)
         // Do any additional setup after loading the view.
     }
     
     @IBAction func cerrarSesionButtonAction(_ sender: UIButton) {
+        switch provider {
+        case .basic, .google:
+            do{
+              try Auth.auth().signOut()
+                navigationController?.popViewController(animated: true)
+            }catch{
+                
+            }
+            
     }
     
     /*
@@ -47,4 +59,5 @@ class HomeViewController: UIViewController {
     }
     */
 
+}
 }
