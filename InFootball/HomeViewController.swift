@@ -16,7 +16,9 @@ class HomeViewController: UIViewController {
         case google
     }
     
+    @IBOutlet weak var nombreJugadorTextField: UITextField!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var posicionTextField: UITextField!
     private let email:String
     private let provider: ProviderType
     //  Constructor para guardar la manera de registro
@@ -41,6 +43,14 @@ class HomeViewController: UIViewController {
         defaults.set(provider.rawValue, forKey: "provider")
         defaults.synchronize()
         // Do any additional setup after loading the view.
+    }
+    @IBAction func saveButtonAction(_ sender: UIButton) {
+    }
+    
+    @IBAction func getButtonAction(_ sender: UIButton) {
+    }
+    
+    @IBAction func deleteButtonAction(_ sender: UIButton) {
     }
     
     @IBAction func cerrarSesionButtonAction(_ sender: UIButton) {
