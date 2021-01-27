@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="InFootball" customModuleProvider="target">
             <connections>
                 <outlet property="emailLabel" destination="wPT-cJ-paF" id="0ua-ZE-KId"/>
+                <outlet property="listaTableView" destination="IGU-Rz-pe3" id="wk6-k4-DiW"/>
                 <outlet property="nombreJugadorTextField" destination="jtZ-40-iM4" id="xzg-JC-zhL"/>
                 <outlet property="posicionTextField" destination="1SS-7R-i28" id="1JP-qB-kch"/>
                 <outlet property="view" destination="iN0-l3-epB" id="29n-ls-raO"/>
@@ -93,15 +94,22 @@
                         </button>
                     </subviews>
                 </stackView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IGU-Rz-pe3">
+                    <rect key="frame" x="0.0" y="515" width="414" height="381"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="IGU-Rz-pe3" secondAttribute="bottom" id="0tY-rK-Obl"/>
                 <constraint firstItem="iND-My-gUt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="AFD-lT-glY"/>
+                <constraint firstItem="IGU-Rz-pe3" firstAttribute="top" secondItem="iND-My-gUt" secondAttribute="bottom" constant="23" id="GgT-Cq-leQ"/>
+                <constraint firstItem="IGU-Rz-pe3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="RnH-DS-FPa"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="iND-My-gUt" secondAttribute="trailing" constant="16" id="UHh-bf-Hxg"/>
                 <constraint firstItem="iND-My-gUt" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="bRd-HW-RjK"/>
+                <constraint firstItem="IGU-Rz-pe3" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="sOz-5J-IHa"/>
             </constraints>
-            <point key="canvasLocation" x="14" y="63"/>
+            <point key="canvasLocation" x="13.043478260869566" y="62.946428571428569"/>
         </view>
         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="6K1-H3-EYv">
             <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
@@ -109,6 +117,9 @@
             <state key="normal" title="Button"/>
             <point key="canvasLocation" x="-410" y="-100"/>
         </button>
+        <tableViewController id="trU-8r-Vwk">
+            <point key="canvasLocation" x="681" y="60"/>
+        </tableViewController>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
