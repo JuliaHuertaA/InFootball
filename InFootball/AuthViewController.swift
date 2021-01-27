@@ -31,11 +31,13 @@ class AuthViewController: UIViewController {
         GIDSignIn.sharedInstance()?.delegate = self
         
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         authStackView.isHidden = false
     }
+    //comentario de prueba para el commit 
 
     @IBAction func registrarButtonAction(_ sender: UIButton) {
         if let email = emailTextField.text, let password = passwordTextField.text{
