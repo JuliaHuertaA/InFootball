@@ -4,6 +4,7 @@ target 'InFootball' do
   
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
 
   target 'InFootballTests' do
     inherit! :search_paths
