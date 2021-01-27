@@ -45,12 +45,15 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func saveButtonAction(_ sender: UIButton) {
+        view.endEditing(true)
     }
     
     @IBAction func getButtonAction(_ sender: UIButton) {
+        view.endEditing(true)
     }
     
     @IBAction func deleteButtonAction(_ sender: UIButton) {
+        view.endEditing(true)
     }
     
     @IBAction func cerrarSesionButtonAction(_ sender: UIButton) {
