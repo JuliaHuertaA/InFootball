@@ -21,6 +21,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var posicionTextField: UITextField!
     private let email:String
     private let provider: ProviderType
+    
+    private let db = Firestore.firestore()
+    
     //  Constructor para guardar la manera de registro
     init(email:String, provider:ProviderType){
         self.email = email
@@ -46,10 +49,19 @@ class HomeViewController: UIViewController {
     }
     @IBAction func saveButtonAction(_ sender: UIButton) {
         view.endEditing(true)
+        db.collection("users").document(email).collection("jugadores").addDocument(
+            data:[
+                "provider":provider.rawValue,
+                "nombreJugador": nombreJugadorTextField.text ?? "",
+                "posicion": posicionTextField.text ?? ""
+            ])
+        nombreJugadorTextField.text = ""
+        posicionTextField.text = ""
     }
     
     @IBAction func getButtonAction(_ sender: UIButton) {
         view.endEditing(true)
+    
     }
     
     @IBAction func deleteButtonAction(_ sender: UIButton) {
