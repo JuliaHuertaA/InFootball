@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
 
 class HomeViewController: UIViewController {
 
@@ -48,25 +49,19 @@ class HomeViewController: UIViewController {
         defaults.removeObject(forKey: "provider")
         defaults.synchronize()
         switch provider {
-        case .basic, .google:
-            do{
-              try Auth.auth().signOut()
-                navigationController?.popViewController(animated: true)
-            }catch{
-                
-            }
+        case .google:
+            GIDSignIn.sharedInstance()?.signOut()
+            firebaseLogOut()
+        case .basic:
+            firebaseLogOut()
+        }
+        navigationController?.popViewController(animated: true)
+    }
+    private func firebaseLogOut(){
+        do{
+            try Auth.auth().signOut()
+        }catch{
             
+        }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
 }

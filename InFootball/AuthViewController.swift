@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
 
 class AuthViewController: UIViewController {
 
@@ -25,7 +26,15 @@ class AuthViewController: UIViewController {
             authStackView.isHidden = true
             navigationController?.pushViewController(HomeViewController(email: email, provider: HomeViewController.ProviderType.init(rawValue: provider)!), animated: false)
         }
+        //Google auth
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance()?.delegate = self
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        authStackView.isHidden = false
     }
 
     @IBAction func registrarButtonAction(_ sender: UIButton) {
@@ -88,7 +97,30 @@ class AuthViewController: UIViewController {
         }
     }
     @IBAction func googleButtonAction(_ sender: Any) {
+        GIDSignIn.sharedInstance()?.signOut()
+        GIDSignIn.sharedInstance()?.signIn()
     }
     
 }
+
+
+extension AuthViewController:GIDSignInDelegate{
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if error == nil && user.authentication != nil{
+            let credential = GoogleAuthProvider.credential(withIDToken: user.authentication.idToken, accessToken: user.authentication.accessToken)
+            Auth.auth().signIn(with: credential){ (result, error)in
+                if let result = result, error == nil{
+                    self.navigationController?.pushViewController(HomeViewController(email: result.user.email!, provider: .google), animated: true)
+                }else{
+                    let alertController = UIAlertController(title: "Error", message: "Se ha producido un error en la autentificació con google", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            }
+          }
+
+        }
+    }
+    
+    
 
