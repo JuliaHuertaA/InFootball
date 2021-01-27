@@ -37,6 +37,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         title = "INFOOTBALL"
         emailLabel.text = email
         navigationItem.setHidesBackButton(true, animated: false)
@@ -58,10 +59,19 @@ class HomeViewController: UIViewController {
         nombreJugadorTextField.text = ""
         posicionTextField.text = ""
     }
+
     
     @IBAction func getButtonAction(_ sender: UIButton) {
         view.endEditing(true)
-    
+        db.collection("users").document(email).collection("jugadores").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
+        }
     }
     
     @IBAction func deleteButtonAction(_ sender: UIButton) {
