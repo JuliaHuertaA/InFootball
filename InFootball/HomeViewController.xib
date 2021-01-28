@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17700" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +11,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="InFootball" customModuleProvider="target">
             <connections>
                 <outlet property="emailLabel" destination="wPT-cJ-paF" id="0ua-ZE-KId"/>
-                <outlet property="listaTableView" destination="IGU-Rz-pe3" id="wk6-k4-DiW"/>
                 <outlet property="nombreJugadorTextField" destination="jtZ-40-iM4" id="xzg-JC-zhL"/>
                 <outlet property="posicionTextField" destination="1SS-7R-i28" id="1JP-qB-kch"/>
                 <outlet property="view" destination="iN0-l3-epB" id="29n-ls-raO"/>
@@ -23,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="iND-My-gUt">
-                    <rect key="frame" x="16" y="60" width="382" height="432"/>
+                    <rect key="frame" x="16" y="60" width="382" height="579"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🥅 Te damos la bienvenida ⚽" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tl8-l7-IzG">
                             <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
@@ -37,24 +36,42 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arma tu equipo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTX-KR-cfA">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jugador favorito ⛹" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTX-KR-cfA">
                             <rect key="frame" x="0.0" y="98" width="382" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre del jugador" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jtZ-40-iM4">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4a-Gs-oZa">
                             <rect key="frame" x="0.0" y="147" width="382" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5O-mE-xNj">
+                            <rect key="frame" x="0.0" y="196" width="382" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actualiza o ingresa tu jugador favorito:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FxI-1P-ipZ">
+                            <rect key="frame" x="0.0" y="245" width="382" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre del jugador" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jtZ-40-iM4">
+                            <rect key="frame" x="0.0" y="294" width="382" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Posición" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1SS-7R-i28">
-                            <rect key="frame" x="0.0" y="196" width="382" height="40"/>
+                            <rect key="frame" x="0.0" y="343" width="382" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wqe-0m-PaV">
-                            <rect key="frame" x="0.0" y="245" width="382" height="40"/>
+                            <rect key="frame" x="0.0" y="392" width="382" height="40"/>
                             <color key="backgroundColor" red="0.73677277419999998" green="0.81979695429999999" blue="0.14961575020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Guardar jugador"/>
@@ -63,16 +80,16 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMd-NN-Cpp">
-                            <rect key="frame" x="0.0" y="294" width="382" height="40"/>
+                            <rect key="frame" x="0.0" y="441" width="382" height="40"/>
                             <color key="backgroundColor" red="0.57688647012885597" green="0.78426395939086291" blue="0.36950898086684886" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <state key="normal" title="Ver lista"/>
+                            <state key="normal" title="Ver jugador"/>
                             <connections>
                                 <action selector="getButtonAction:" destination="-1" eventType="touchUpInside" id="3kG-Vp-xJt"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrZ-w4-ceh">
-                            <rect key="frame" x="0.0" y="343" width="382" height="40"/>
+                            <rect key="frame" x="0.0" y="490" width="382" height="40"/>
                             <color key="backgroundColor" red="0.88578680200000004" green="0.64656022950000003" blue="0.40320862419999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Eliminar jugador"/>
@@ -81,7 +98,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gi6-Pe-lB2">
-                            <rect key="frame" x="0.0" y="392" width="382" height="40"/>
+                            <rect key="frame" x="0.0" y="539" width="382" height="40"/>
                             <color key="backgroundColor" systemColor="systemRedColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="fUw-cc-Skw"/>
@@ -94,20 +111,13 @@
                         </button>
                     </subviews>
                 </stackView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IGU-Rz-pe3">
-                    <rect key="frame" x="0.0" y="515" width="414" height="381"/>
-                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="IGU-Rz-pe3" secondAttribute="bottom" id="0tY-rK-Obl"/>
                 <constraint firstItem="iND-My-gUt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="AFD-lT-glY"/>
-                <constraint firstItem="IGU-Rz-pe3" firstAttribute="top" secondItem="iND-My-gUt" secondAttribute="bottom" constant="23" id="GgT-Cq-leQ"/>
-                <constraint firstItem="IGU-Rz-pe3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="RnH-DS-FPa"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="iND-My-gUt" secondAttribute="trailing" constant="16" id="UHh-bf-Hxg"/>
                 <constraint firstItem="iND-My-gUt" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="bRd-HW-RjK"/>
-                <constraint firstItem="IGU-Rz-pe3" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="sOz-5J-IHa"/>
             </constraints>
             <point key="canvasLocation" x="13.043478260869566" y="62.946428571428569"/>
         </view>

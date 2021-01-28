@@ -9,9 +9,9 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+//UITableViewDelegate, UITableViewDataSource
 
-
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController {
     
 
     enum ProviderType: String {
@@ -42,8 +42,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        listaTableView.delegate = self
-        listaTableView.dataSource = self
+      /*  listaTableView.delegate = self
+        listaTableView.dataSource = self*/
 
         title = "INFOOTBALL"
         emailLabel.text = email
@@ -56,7 +56,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Do any additional setup after loading the view.
     }
     
-
+/*
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 20
     }
@@ -72,7 +72,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
+                    print(querySnapshot!.count)
+                    //print("\(document.documentID) => \(document.data())")
                     let jugador = document.data() as NSDictionary
                     print("\(jugador["nombreJugador"]!)")
                     let llenar = "\(jugador["nombreJugador"]!)"
@@ -82,38 +83,41 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
         return cell
-    }
+    }*/
     
     @IBAction func saveButtonAction(_ sender: UIButton) {
         view.endEditing(true)
-        db.collection("users").document(email).collection("jugadores").addDocument(
-            data:[
-                "provider":provider.rawValue,
-                "nombreJugador": nombreJugadorTextField.text ?? "",
-                "posicion": posicionTextField.text ?? ""
-            ])
+        db.collection("users").document(email).setData([
+               "provider":provider.rawValue,
+               "nombreJugador": nombreJugadorTextField.text ?? "",
+               "posicion": posicionTextField.text ?? ""])
         nombreJugadorTextField.text = ""
         posicionTextField.text = ""
+        let alertController = UIAlertController(title: "Registro exitoso", message: "Su jugador favorito ha sido registrado con éxito", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
+        self.present(alertController, animated: true, completion: nil)
     }
 
     
     @IBAction func getButtonAction(_ sender: UIButton) {
         view.endEditing(true)
-        db.collection("users").document(email).collection("jugadores").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-                    print(document.data().count)
-                    print(document.data().description)
+        db.collection("users").document(email).getDocument{
+            (documentSnapshot,error)in
+            if let document = documentSnapshot, error == nil {
+                if let jugador = document.get("nombreJugador") as? String{
+                    self.nombreJugadorTextField.text = jugador
+                }
+                if let posicion = document.get("posicion") as? String{
+                    self.posicionTextField.text = posicion
                 }
             }
+            
         }
     }
     
     @IBAction func deleteButtonAction(_ sender: UIButton) {
         view.endEditing(true)
+        db.collection("users").document(email).delete()
     }
     
     @IBAction func cerrarSesionButtonAction(_ sender: UIButton) {
