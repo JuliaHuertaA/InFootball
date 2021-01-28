@@ -58,9 +58,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     
-
-        return 3
+        return 20
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,14 +73,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             } else {
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
-                    print(document.data().count)
-                    let cadena = document.data().description
-                    cell.textLabel?.text = cadena;
+                    let jugador = document.data() as NSDictionary
+                    print("\(jugador["nombreJugador"]!)")
+                    let llenar = "\(jugador["nombreJugador"]!)"
+                    print("----------------------------------------------------------------")
+                    cell.textLabel?.text = llenar
                 }
             }
         }
         return cell
     }
+    
     @IBAction func saveButtonAction(_ sender: UIButton) {
         view.endEditing(true)
         db.collection("users").document(email).collection("jugadores").addDocument(
