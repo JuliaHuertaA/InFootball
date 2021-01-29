@@ -14,8 +14,6 @@
                 <outlet property="buscarTextField" destination="kXR-PZ-pk8" id="r14-Sw-DGW"/>
                 <outlet property="emailLabel" destination="wPT-cJ-paF" id="0ua-ZE-KId"/>
                 <outlet property="equipoJugadorLabel" destination="NDD-GV-lUV" id="HF0-oE-fiB"/>
-                <outlet property="equipoLabel" destination="btu-z3-JWS" id="Q3p-T8-NC1"/>
-                <outlet property="equiposLabel" destination="btu-z3-JWS" id="MbZ-E9-dGt"/>
                 <outlet property="golesJugadorLabel" destination="be3-6i-mv5" id="cEf-qq-STy"/>
                 <outlet property="golesLabel" destination="RKp-5P-DnA" id="Qkm-0Z-S1k"/>
                 <outlet property="nombreJugadorLabel" destination="Tkl-Ma-S5t" id="ITX-zj-O1N"/>
@@ -124,13 +122,6 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDD-GV-lUV">
                     <rect key="frame" x="162" y="730" width="210" height="33"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Equipo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btu-z3-JWS">
-                    <rect key="frame" x="43" y="730" width="77" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>

@@ -18,9 +18,7 @@ class HomeViewController: UIViewController {
         case basic
         case google
     }
-    
-
-    @IBOutlet weak var equipoLabel: UILabel!
+ 
     @IBOutlet weak var golesJugadorLabel: UILabel!
     @IBOutlet weak var equipoJugadorLabel: UILabel!
     @IBOutlet weak var nombreJugadorLabel: UILabel!
@@ -64,6 +62,20 @@ class HomeViewController: UIViewController {
         getAllMembers(urlString: url)
         
     }
+    func parseJSON(footballData:Data){
+        let decoder = JSONDecoder()
+        do{
+          let dataDecodifcada =  try decoder.decode(FootballData.self, from: footballData)
+          
+            print(dataDecodifcada.scorers[0].numberOfGoals)
+       
+        }catch{
+            print("IMPRIME EL ERROR")
+                
+            print(error)
+        }
+
+    }
     func getAllMembers(urlString: String) {
 
         guard let url = URL(string: urlString) else { return }
@@ -81,8 +93,9 @@ class HomeViewController: UIViewController {
                 return
             }
             if data != nil{
-                let informacionString = String(data: data!, encoding: .utf8)
-                print(informacionString!)
+                self.parseJSON(footballData: data!)
+              //  let informacionString = String(data: data!, encoding: .utf8)
+               // print(informacionString!)
             }
 
         }.resume()
