@@ -19,8 +19,14 @@ class HomeViewController: UIViewController {
         case google
     }
     
-  
-    @IBOutlet weak var listaTableView: UITableView!
+
+    @IBOutlet weak var equipoLabel: UILabel!
+    @IBOutlet weak var golesJugadorLabel: UILabel!
+    @IBOutlet weak var equipoJugadorLabel: UILabel!
+    @IBOutlet weak var nombreJugadorLabel: UILabel!
+    @IBOutlet weak var golesLabel: UILabel!
+    @IBOutlet weak var nombreLabel: UILabel!
+    @IBOutlet weak var buscarTextField: UITextField!
     @IBOutlet weak var nombreJugadorTextField: UITextField!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var posicionTextField: UITextField!
@@ -53,9 +59,34 @@ class HomeViewController: UIViewController {
         defaults.set(email, forKey: "email")
         defaults.set(provider.rawValue, forKey: "provider")
         defaults.synchronize()
-        // Do any additional setup after loading the view.
+        let url = "https://api.football-data.org/v2/competitions/CL/scorers"
+        
+        getAllMembers(urlString: url)
+        
     }
+    func getAllMembers(urlString: String) {
 
+        guard let url = URL(string: urlString) else { return }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("96e208ed0b6a420cba97fad3b581d1cc", forHTTPHeaderField: "X-Auth-Token")
+
+       // request.httpBody = "member=John".data(using: .utf8)!
+    
+
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil{
+                print(error!)
+                return
+            }
+            if data != nil{
+                let informacionString = String(data: data!, encoding: .utf8)
+                print(informacionString!)
+            }
+
+        }.resume()
+    }
     @objc func tapGestureHandler() {
             nombreJugadorTextField.endEditing(true)
             posicionTextField.endEditing(true)
@@ -126,6 +157,9 @@ class HomeViewController: UIViewController {
             firebaseLogOut()
         }
         navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func buscarButton(_ sender: UIButton) {
     }
     private func firebaseLogOut(){
         do{
