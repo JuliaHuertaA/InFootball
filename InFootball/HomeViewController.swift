@@ -57,29 +57,33 @@ class HomeViewController: UIViewController {
         defaults.set(email, forKey: "email")
         defaults.set(provider.rawValue, forKey: "provider")
         defaults.synchronize()
-        let url = "https://api.football-data.org/v2/competitions/CL/scorers"
+        //let url = "https://api.football-data.org/v2/competitions/CL/scorers"
         
-        getAllMembers(urlString: url)
+       // getAllMembers(urlString: url)
         
     }
-    func parseJSON(footballData:Data){
+    func parseJSON(footballData:Data) -> FootballModelo?{
         let decoder = JSONDecoder()
         do{
           let dataDecodifcada =  try decoder.decode(FootballData.self, from: footballData)
             print(dataDecodifcada.scorers[0].player.name)
-          //  let nombreJugador = dataDecodifcada.scorers[0].player.name
+            let nombreJugador = dataDecodifcada.scorers[0].player.name
             print(dataDecodifcada.scorers[0].team.name)
-          //  let nombreEquipo = dataDecodifcada.scorers[0].team.name
+            let nombreEquipo = dataDecodifcada.scorers[0].team.name
             print(dataDecodifcada.scorers[0].numberOfGoals)
-           // let goles = dataDecodifcada.scorers[0].numberOfGoals
-         //   let ObjFootball = FootballModelo(nombreJugador: nombreJugador, nombreEquipo: nombreEquipo, goles: goles)
-          //  return ObjFootball
+            let goles = dataDecodifcada.scorers[0].numberOfGoals
+            let ObjFootball = FootballModelo(nombreJugador: nombreJugador, nombreEquipo: nombreEquipo, goles: goles)
+            print (ObjFootball)
+            return ObjFootball
         }catch{
             print("Imprimir errores---------------------------")
             print(error)
             print("----------------------------------------------")
         }
-
+        return nil
+    }
+    func actualizarJugador(football: FootballModelo){
+        
     }
     func getAllMembers(urlString: String) {
 
@@ -108,6 +112,7 @@ class HomeViewController: UIViewController {
     @objc func tapGestureHandler() {
             nombreJugadorTextField.endEditing(true)
             posicionTextField.endEditing(true)
+            buscarTextField.endEditing(true)
       }
     
     @IBAction func saveButtonAction(_ sender: UIButton) {
@@ -178,6 +183,23 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func buscarButton(_ sender: UIButton) {
+       
+        let liga = buscarTextField.text
+        
+        switch liga {
+        case "Bundesliga":
+           let ligaurl = "BL1"
+            let url = "https://api.football-data.org/v2/competitions/\(ligaurl)/scorers"
+            getAllMembers(urlString: url)
+         
+        default:
+            let alertController = UIAlertController(title: "No se encontró la información", message: "No tenemos el dato la liga o no se escribio correctamente", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
+            self.present(alertController, animated: true, completion: nil)
+            print("sepa la madre que paso")
+        }
+       
+
     }
     private func firebaseLogOut(){
         do{
