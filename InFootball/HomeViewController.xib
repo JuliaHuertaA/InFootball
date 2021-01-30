@@ -28,44 +28,38 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="iND-My-gUt">
-                    <rect key="frame" x="16" y="60" width="382" height="775"/>
+                    <rect key="frame" x="16" y="60" width="382" height="677"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🥅 Te damos la bienvenida ⚽" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tl8-l7-IzG">
-                            <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPT-cJ-paF">
-                            <rect key="frame" x="0.0" y="49" width="382" height="40"/>
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jugador favorito ⛹" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTX-KR-cfA">
-                            <rect key="frame" x="0.0" y="98" width="382" height="40"/>
+                            <rect key="frame" x="0.0" y="49" width="382" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actualiza o ingresa tu jugador favorito:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FxI-1P-ipZ">
-                            <rect key="frame" x="0.0" y="147" width="382" height="40"/>
+                            <rect key="frame" x="0.0" y="98" width="382" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre del jugador" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jtZ-40-iM4">
-                            <rect key="frame" x="0.0" y="196" width="382" height="40"/>
+                            <rect key="frame" x="0.0" y="147" width="382" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Posición" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1SS-7R-i28">
-                            <rect key="frame" x="0.0" y="245" width="382" height="40"/>
+                            <rect key="frame" x="0.0" y="196" width="382" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wqe-0m-PaV">
-                            <rect key="frame" x="0.0" y="294" width="382" height="40"/>
+                            <rect key="frame" x="0.0" y="245" width="382" height="40"/>
                             <color key="backgroundColor" red="0.73677277419999998" green="0.81979695429999999" blue="0.14961575020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Guardar jugador"/>
@@ -74,7 +68,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMd-NN-Cpp">
-                            <rect key="frame" x="0.0" y="343" width="382" height="40"/>
+                            <rect key="frame" x="0.0" y="294" width="382" height="40"/>
                             <color key="backgroundColor" red="0.57688647012885597" green="0.78426395939086291" blue="0.36950898086684886" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Ver jugador"/>
@@ -83,7 +77,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrZ-w4-ceh">
-                            <rect key="frame" x="0.0" y="392" width="382" height="40"/>
+                            <rect key="frame" x="0.0" y="343" width="382" height="40"/>
                             <color key="backgroundColor" red="0.88578680200000004" green="0.64656022950000003" blue="0.40320862419999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Eliminar jugador"/>
@@ -91,20 +85,14 @@
                                 <action selector="deleteButtonAction:" destination="-1" eventType="touchUpInside" id="Lfm-A9-BrA"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descubre el goleador de esta temporada" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAr-b5-s1f">
-                            <rect key="frame" x="0.0" y="441" width="382" height="40"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" de tu liga favorita:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgv-XM-xeX">
-                            <rect key="frame" x="0.0" y="490" width="382" height="40"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descubre el goleador de tu liga favorita:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAr-b5-s1f">
+                            <rect key="frame" x="0.0" y="392" width="382" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XJI-rS-gqb">
-                            <rect key="frame" x="0.0" y="539" width="382" height="40"/>
+                            <rect key="frame" x="0.0" y="441" width="382" height="40"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kXR-PZ-pk8">
                                     <rect key="frame" x="0.0" y="0.0" width="322" height="40"/>
@@ -130,7 +118,7 @@
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d3O-bg-gyT">
-                            <rect key="frame" x="0.0" y="588" width="382" height="40"/>
+                            <rect key="frame" x="0.0" y="490" width="382" height="40"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Nombre:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVI-dM-2dh">
                                     <rect key="frame" x="0.0" y="0.0" width="66" height="40"/>
@@ -150,7 +138,7 @@
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8bJ-y4-qDC">
-                            <rect key="frame" x="0.0" y="637" width="382" height="40"/>
+                            <rect key="frame" x="0.0" y="539" width="382" height="40"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Equipo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icD-L0-8Au">
                                     <rect key="frame" x="0.0" y="0.0" width="57.5" height="40"/>
@@ -167,7 +155,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pXx-nI-5jZ">
-                            <rect key="frame" x="0.0" y="686" width="382" height="40"/>
+                            <rect key="frame" x="0.0" y="588" width="382" height="40"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Goles:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKp-5P-DnA">
                                     <rect key="frame" x="0.0" y="0.0" width="48.5" height="40"/>
@@ -184,7 +172,7 @@
                             </subviews>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gi6-Pe-lB2">
-                            <rect key="frame" x="0.0" y="735" width="382" height="40"/>
+                            <rect key="frame" x="0.0" y="637" width="382" height="40"/>
                             <color key="backgroundColor" systemColor="systemRedColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="fUw-cc-Skw"/>

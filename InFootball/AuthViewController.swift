@@ -19,7 +19,7 @@ class AuthViewController: UIViewController {
     @IBOutlet weak var googleButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Registro"
+        title = "Bienvenidos a InFootball"
         let defaults =  UserDefaults.standard
         if let email = defaults.value(forKey: "email") as? String,
            let provider = defaults.value(forKey: "provider") as? String{
@@ -46,22 +46,30 @@ class AuthViewController: UIViewController {
                 if let result = result, error == nil{
                     self.navigationController?.pushViewController(HomeViewController(email: result.user.email!, provider: .basic), animated: true)
                     print("Si se registro")
+                    self.emailTextField.text = ""
+                    self.passwordTextField.text = ""
                 }else{
                     print("Este es el error ")
                     print(error as Any)
                     print(error?.localizedDescription as Any)
                     let errorRegistro = error?.localizedDescription as Any
                     if errorRegistro as! String ==  "The email address is badly formatted." {
+                        self.emailTextField.text = ""
+                        self.passwordTextField.text = ""
                         let alertController = UIAlertController(title: "Error", message: "No se ingreso el correo correctamente", preferredStyle: .alert)
                         alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
                         self.present(alertController, animated: true, completion: nil)
                     }
                     if errorRegistro as! String == "The email address is already in use by another account."{
+                        self.emailTextField.text = ""
+                        self.passwordTextField.text = ""
                         let alertController = UIAlertController(title: "Error", message: "El correo que ingreso ya se uso para crear otra cuenta", preferredStyle: .alert)
                         alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
                         self.present(alertController, animated: true, completion: nil)
                     }
                     if errorRegistro as! String == "The password must be 6 characters long or more."{
+                        self.emailTextField.text = ""
+                        self.passwordTextField.text = ""
                         let alertController = UIAlertController(title: "Error", message: "La contraseña debe tener 6 caracteres o más", preferredStyle: .alert)
                         alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
                         self.present(alertController, animated: true, completion: nil)
@@ -78,17 +86,23 @@ class AuthViewController: UIViewController {
                 if let result = result, error == nil{
                     self.navigationController?.pushViewController(HomeViewController(email: result.user.email!, provider: .basic), animated: true)
                     print("Entra a la app")
+                    self.emailTextField.text = ""
+                    self.passwordTextField.text = ""
                 }else{
                     print("Este es el error ")
                     print(error as Any)
                     print(error?.localizedDescription as Any)
                     let errorAutenticacion = error?.localizedDescription as Any
                     if errorAutenticacion as! String == "The password is invalid or the user does not have a password." {
+                        self.emailTextField.text = ""
+                        self.passwordTextField.text = ""
                         let alertController = UIAlertController(title: "Error", message: "La contraseña es incorrecta", preferredStyle: .alert)
                         alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
                         self.present(alertController, animated: true, completion: nil)
                     }
                     if errorAutenticacion as! String == "There is no user record corresponding to this identifier. The user may have been deleted." {
+                        self.emailTextField.text = ""
+                        self.passwordTextField.text = ""
                         let alertController = UIAlertController(title: "Error", message: "El usuario no se encuentra registrado", preferredStyle: .alert)
                         alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
                         self.present(alertController, animated: true, completion: nil)

@@ -49,7 +49,7 @@ class HomeViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureHandler))
                 view.addGestureRecognizer(tapGesture)
 
-        title = "INFOOTBALL"
+        title = "Te damos la bienvenida"
         emailLabel.text = email
         navigationItem.setHidesBackButton(true, animated: false)
         //Guardar datos del usuario
@@ -192,7 +192,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func buscarButton(_ sender: UIButton) {
-       
+        
         let liga = buscarTextField.text
         
         switch liga {
