@@ -77,6 +77,9 @@ class HomeViewController: UIViewController {
             actualizarJugador(football: ObjFootball)
             return ObjFootball
         }catch{
+            let alertController = UIAlertController(title: "No se encontró la información", message: "No tenemos el dato la liga o no se escribio correctamente", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
+            self.present(alertController, animated: true, completion: nil)
             print("Imprimir errores---------------------------")
             print(error)
             print("----------------------------------------------")
@@ -210,8 +213,8 @@ class HomeViewController: UIViewController {
            let ligaurl = "ELC"
             let url = "https://api.football-data.org/v2/competitions/\(ligaurl)/scorers"
             getAllMembers(urlString: url)
-        case "Copa del rey":
-           let ligaurl = "CDR"
+        case "Serie A":
+           let ligaurl = "SA"
             let url = "https://api.football-data.org/v2/competitions/\(ligaurl)/scorers"
             getAllMembers(urlString: url)
         case "Champions league":
