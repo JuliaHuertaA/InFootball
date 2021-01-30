@@ -66,13 +66,18 @@ class HomeViewController: UIViewController {
         let decoder = JSONDecoder()
         do{
           let dataDecodifcada =  try decoder.decode(FootballData.self, from: footballData)
-          
+            print(dataDecodifcada.scorers[0].player.name)
+          //  let nombreJugador = dataDecodifcada.scorers[0].player.name
+            print(dataDecodifcada.scorers[0].team.name)
+          //  let nombreEquipo = dataDecodifcada.scorers[0].team.name
             print(dataDecodifcada.scorers[0].numberOfGoals)
-       
+           // let goles = dataDecodifcada.scorers[0].numberOfGoals
+         //   let ObjFootball = FootballModelo(nombreJugador: nombreJugador, nombreEquipo: nombreEquipo, goles: goles)
+          //  return ObjFootball
         }catch{
-            print("IMPRIME EL ERROR")
-                
+            print("Imprimir errores---------------------------")
             print(error)
+            print("----------------------------------------------")
         }
 
     }
@@ -84,9 +89,6 @@ class HomeViewController: UIViewController {
         request.httpMethod = "GET"
         request.setValue("96e208ed0b6a420cba97fad3b581d1cc", forHTTPHeaderField: "X-Auth-Token")
 
-       // request.httpBody = "member=John".data(using: .utf8)!
-    
-
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error != nil{
                 print(error!)
@@ -94,8 +96,11 @@ class HomeViewController: UIViewController {
             }
             if data != nil{
                 self.parseJSON(footballData: data!)
-              //  let informacionString = String(data: data!, encoding: .utf8)
-               // print(informacionString!)
+                    //     print("DATOS--------------------------------------------------")
+                      //   let informacionString = String(data: data!, encoding: .utf8)
+                //print(informacionString!)
+               // print("------------------------------------------------------------------")
+
             }
 
         }.resume()

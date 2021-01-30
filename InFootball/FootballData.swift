@@ -13,7 +13,7 @@ struct FootballData: Decodable {
 struct Scorers:Decodable {
     let player : Player
     let team : Team
-    let numberOfGoals : String
+    let numberOfGoals : Int
 }
 
 struct Player: Decodable {
