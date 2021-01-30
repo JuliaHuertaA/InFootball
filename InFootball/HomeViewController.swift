@@ -74,6 +74,7 @@ class HomeViewController: UIViewController {
             let goles = dataDecodifcada.scorers[0].numberOfGoals
             let ObjFootball = FootballModelo(nombreJugador: nombreJugador, nombreEquipo: nombreEquipo, goles: goles)
             print (ObjFootball)
+            actualizarJugador(football: ObjFootball)
             return ObjFootball
         }catch{
             print("Imprimir errores---------------------------")
@@ -83,7 +84,12 @@ class HomeViewController: UIViewController {
         return nil
     }
     func actualizarJugador(football: FootballModelo){
-        
+        DispatchQueue.main.async {
+            self.nombreJugadorLabel.text = football.nombreJugador
+            self.equipoJugadorLabel.text = football.nombreEquipo
+            self.golesJugadorLabel.text = football.goles2
+        }
+       
     }
     func getAllMembers(urlString: String) {
 
@@ -187,8 +193,29 @@ class HomeViewController: UIViewController {
         let liga = buscarTextField.text
         
         switch liga {
+        case "":
+            let alertController = UIAlertController(title: "No inserto datos", message: "Llena el campo", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Aceptar", style: .default))
+            self.present(alertController, animated: true, completion: nil)
+           
         case "Bundesliga":
            let ligaurl = "BL1"
+            let url = "https://api.football-data.org/v2/competitions/\(ligaurl)/scorers"
+            getAllMembers(urlString: url)
+        case "Premiere league":
+           let ligaurl = "PL"
+            let url = "https://api.football-data.org/v2/competitions/\(ligaurl)/scorers"
+            getAllMembers(urlString: url)
+        case "Championship":
+           let ligaurl = "ELC"
+            let url = "https://api.football-data.org/v2/competitions/\(ligaurl)/scorers"
+            getAllMembers(urlString: url)
+        case "Copa del rey":
+           let ligaurl = "CDR"
+            let url = "https://api.football-data.org/v2/competitions/\(ligaurl)/scorers"
+            getAllMembers(urlString: url)
+        case "Champions league":
+           let ligaurl = "CL"
             let url = "https://api.football-data.org/v2/competitions/\(ligaurl)/scorers"
             getAllMembers(urlString: url)
          
